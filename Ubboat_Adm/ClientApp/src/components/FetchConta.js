@@ -23,7 +23,7 @@ export class FetchContas extends Component {
         } else {
             fetch('api/contas/' + id, { method: 'delete' })
                 .then(json => {
-                    window.location.href = "fetch-Conta";
+                    window.location.href = "fetch-Contas";
                     alert('Excluido');
                 })
         }
@@ -80,7 +80,7 @@ export class FetchContas extends Component {
                 <h1 id="tabelLabel"> Contas</h1>
                 <p> Relação de contas</p>
                 <p>
-                    <Link to="/add-contas"> Registrar nova conta </Link>
+                    <Link to="/AddConta"> Registrar nova conta </Link>
                 </p>
                 {contens}
             </div>

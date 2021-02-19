@@ -52,6 +52,8 @@ namespace Ubboat_Adm.Controllers
                 return BadRequest();
             }
 
+            contas.Valor_Final = contas.Valor + contas.Juros + contas.Taxa - contas.Desconto;
+
             _context.Entry(contas).State = EntityState.Modified;
 
             try
