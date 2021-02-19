@@ -80,6 +80,8 @@ namespace BardoZe.Controllers
         [HttpPost]
         public async Task<ActionResult<Contas>> PostContas([FromForm] Contas contas)
         {
+            contas.Valor_Final = contas.Valor + contas.Juros + contas.Taxa - contas.Desconto;
+
             _context.Conta.Add(contas);
             await _context.SaveChangesAsync();
 

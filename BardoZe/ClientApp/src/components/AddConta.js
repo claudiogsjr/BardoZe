@@ -18,22 +18,22 @@ export class Conta {
 
 export class AddConta extends Component {
     constructor(props) {
-        super(props);
-        this.state = { title: "", conta: new Conta(), loading: false };
+        super(props);        
+        this.state = { title: "", conta: new Conta(), loading: true };
         this.inicialize();
         this.handleCancel = this.handleCancel.bind(this);
         this.handleSalvar = this.handleSalvar.bind(this);
 
     }
-
+    
     async inicialize() {
         var id = this.props.match.params["id"];
-        if (id > 0) {
+        if (id) {
             const response = await fetch('api/Contas/' + id);
             const data = await response.json();
-            this.setState({ title: "Edit", conta: data, loading: false });
+            this.setState({ title: "", conta: data, loading: false });
         } else {
-            this.setState({ title: "Create", conta: new Conta(), loading: false });
+            this.state = { title: "Novo Resgistro", conta: new Conta(), loading: false };
         }
     }
 
@@ -53,7 +53,7 @@ export class AddConta extends Component {
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.history.push("/fetch-Conta");
+        this.props.history.push("/fetch-Contas");
     }
 
     handleSalvar(event) {
@@ -65,7 +65,7 @@ export class AddConta extends Component {
             window.location.href = "fetch-Contas";
         } else {
             const response2 = fetch('api/Contas/', { method: "POST", body: data });
-            this.props.history.push("/fetch-Contas");
+            window.location.href = "fetch-Contas";
 
         };
     }
@@ -80,45 +80,45 @@ export class AddConta extends Component {
                 <div className="form-group row">
                     <div className="col-md-12">
                         <label>Descrição</label>
-                        <input className="form-control" type="text" name="Descricao" defaultValue={this.state.conta.descricao} required />
+                        <input className="form-control" type="text" name="descricao" defaultValue={this.state.conta.descricao} required />
                     </div>
                 </div>
                 <div className="form-group row">
                     <div className="col-md-6">
                         <label>Valor</label>
-                        <input className="form-control" type="text" name="Valor" defaultValue={this.state.conta.valor} required />
+                        <input className="form-control" type="text" name="valor" defaultValue={this.state.conta.valor}  />
                     </div>
                     <div className="col-md-6">
                         <label>Desconto</label>
-                        <input className="form-control" type="text" name="Desconto" defaultValue={this.state.conta.desconto} />
+                        <input className="form-control" type="text" name="desconto" defaultValue={this.state.conta.desconto} />
                     </div>
                 </div>
                 <div className="form-group row">
                     <div className="col-md-4">
                         <label>Juros</label>
-                        <input className="form-control" type="text" name="Juros" defaultValue={this.state.conta.juros} />
+                        <input className="form-control" type="text" name="juros" defaultValue={this.state.conta.juros} />
                     </div>
                     <div className="col-md-4">
                         <label>Taxa</label>
-                        <input className="form-control" type="text" name="Taxa" defaultValue={this.state.conta.taxa} />
+                        <input className="form-control" type="text" name="taxa" defaultValue={this.state.conta.taxa} />
                     </div>
                     <div className="col-md-4">
                         <label>Valor Final</label>
-                        <input className="form-control" type="text" name="Valor_Final" defaultValue={this.state.conta.valor_Final} />
+                        <input className="form-control" type="text" name="valor_Final" defaultValue={this.state.conta.valor_Final} />
                     </div>
                 </div>
                 <div className="form-group row">
                     <div className="col-md-4">
                         <label>Data Vencimento</label>
-                        <input className="form-control" type="text" name="Dt_Vencimento" defaultValue={this.state.conta.dt_Vencimento} />
+                        <input className="form-control" type="text" name="dt_Vencimento" defaultValue={this.state.conta.dt_Vencimento} />
                     </div>
                     <div className="col-md-4">
                         <label>Data Pagamento</label>
-                        <input className="form-control" type="text" name="Dt_Pagamento" defaultValue={this.state.conta.dt_Pagamento} />
+                        <input className="form-control" type="text" name="dt_Pagamento" defaultValue={this.state.conta.dt_Pagamento} />
                     </div>
                     <div className="col-md-4">
                         <label>Tipo</label>
-                        <input className="form-control" type="text" name="TipoId" defaultValue={this.state.conta.tipoId} required />
+                        <input className="form-control" type="text" name="tipoId" defaultValue={this.state.conta.tipoId} />
                     </div>
                 </div>
                 <input type="submit" className="btn btn-success" value="Enviar" />
