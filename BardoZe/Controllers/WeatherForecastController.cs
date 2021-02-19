@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ubboat_Adm.Controllers
+namespace BardoZe.Controllers
 {
     [ApiController]
     [Route("[controller]")]

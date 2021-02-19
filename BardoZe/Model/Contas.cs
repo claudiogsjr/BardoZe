@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ubboat_Adm.Model
+namespace BardoZe.Model
 {
     [Table("Contas")]
     public class Contas

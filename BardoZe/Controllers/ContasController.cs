@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Ubboat_Adm.Infra;
-using Ubboat_Adm.Model;
+using BardoZe.Infra;
+using BardoZe.Model;
 
-namespace Ubboat_Adm.Controllers
+namespace BardoZe.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

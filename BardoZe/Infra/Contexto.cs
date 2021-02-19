@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Ubboat_Adm.Model;
+using BardoZe.Model;
 
-namespace Ubboat_Adm.Infra
+namespace BardoZe.Infra
 {
     public class Contexto: DbContext
     {

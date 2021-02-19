@@ -1,6 +1,6 @@
 using System;
 
-namespace Ubboat_Adm
+namespace BardoZe
 {
     public class WeatherForecast
     {
